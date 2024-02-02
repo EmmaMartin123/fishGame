@@ -1,0 +1,10 @@
+C:\Users\4mart\Desktop\uniWork\lvl2\2computerSystems\assignment01\fishGame\bin\Debug\fishGame.exe.config
+C:\Users\4mart\Desktop\uniWork\lvl2\2computerSystems\assignment01\fishGame\bin\Debug\fishGame.exe
+C:\Users\4mart\Desktop\uniWork\lvl2\2computerSystems\assignment01\fishGame\bin\Debug\fishGame.pdb
+C:\Users\4mart\Desktop\uniWork\lvl2\2computerSystems\assignment01\fishGame\obj\Debug\fishGame.csproj.AssemblyReference.cache
+C:\Users\4mart\Desktop\uniWork\lvl2\2computerSystems\assignment01\fishGame\obj\Debug\fishGame.frmGameScreen.resources
+C:\Users\4mart\Desktop\uniWork\lvl2\2computerSystems\assignment01\fishGame\obj\Debug\fishGame.Properties.Resources.resources
+C:\Users\4mart\Desktop\uniWork\lvl2\2computerSystems\assignment01\fishGame\obj\Debug\fishGame.csproj.GenerateResource.cache
+C:\Users\4mart\Desktop\uniWork\lvl2\2computerSystems\assignment01\fishGame\obj\Debug\fishGame.csproj.CoreCompileInputs.cache
+C:\Users\4mart\Desktop\uniWork\lvl2\2computerSystems\assignment01\fishGame\obj\Debug\fishGame.exe
+C:\Users\4mart\Desktop\uniWork\lvl2\2computerSystems\assignment01\fishGame\obj\Debug\fishGame.pdb
