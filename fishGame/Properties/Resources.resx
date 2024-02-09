@@ -121,13 +121,34 @@
   <data name="linux_penguin_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\linux_penguin_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="linux_penguin_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\linux_penguin_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="usernames-background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usernames-background.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\picture.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="linux_penguin_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\linux_penguin_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\splash.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mainBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mainBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="soundOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\soundOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="soundOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\soundOn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1Fish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1Fish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="2Fish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2Fish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="3Fish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3Fish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

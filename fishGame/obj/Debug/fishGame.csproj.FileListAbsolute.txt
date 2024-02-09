@@ -28,3 +28,13 @@ C:\Users\marty\Desktop\Uni\Second Year\Computer Systems Now\VS Projects\GridGame
 C:\Users\marty\Desktop\Uni\Second Year\Computer Systems Now\VS Projects\GridGame\fishGame-main\fishGame\obj\Debug\fishGame.Properties.Resources.resources
 C:\Users\marty\Desktop\Uni\Second Year\Computer Systems Now\VS Projects\GridGame\fishGame-main\fishGame\obj\Debug\fishGame.csproj.GenerateResource.cache
 C:\Users\marty\Desktop\Uni\Second Year\Computer Systems Now\VS Projects\GridGame\fishGame-main\fishGame\obj\Debug\fishGame.csproj.CoreCompileInputs.cache
+E:\Work\Programming\C#\GitHub Repos\fishGame\bin\Debug\fishGame.exe.config
+E:\Work\Programming\C#\GitHub Repos\fishGame\bin\Debug\fishGame.exe
+E:\Work\Programming\C#\GitHub Repos\fishGame\bin\Debug\fishGame.pdb
+E:\Work\Programming\C#\GitHub Repos\fishGame\obj\Debug\fishGame.csproj.AssemblyReference.cache
+E:\Work\Programming\C#\GitHub Repos\fishGame\obj\Debug\fishGame.frmGameScreen.resources
+E:\Work\Programming\C#\GitHub Repos\fishGame\obj\Debug\fishGame.Properties.Resources.resources
+E:\Work\Programming\C#\GitHub Repos\fishGame\obj\Debug\fishGame.csproj.GenerateResource.cache
+E:\Work\Programming\C#\GitHub Repos\fishGame\obj\Debug\fishGame.csproj.CoreCompileInputs.cache
+E:\Work\Programming\C#\GitHub Repos\fishGame\obj\Debug\fishGame.exe
+E:\Work\Programming\C#\GitHub Repos\fishGame\obj\Debug\fishGame.pdb
