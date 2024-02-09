@@ -71,7 +71,7 @@ namespace fishGame
         {
             InitializeComponent();
 
-            // Create grid of buttons
+            // Create grid of buttons with custom images
             for (int i = 0; i < btn.GetLength(0); i++)
             {
                 for (int j = 0; j < btn.GetLength(1); j++)
@@ -80,8 +80,23 @@ namespace fishGame
                     btn[i, j].SetBounds(100 + (45 * i), 25 + (45 * j), 45, 45);
                     btn[i, j].BackColor = Color.PowderBlue;
 
-                    // Give each button a random integer value of 1, 2 or 3
-                    btn[i, j].Text = Convert.ToString(num = rnd.Next(1, 4));
+                    int num = rnd.Next(1, 4);
+                    if (num == 1)
+                    {
+                        btn[i, j].BackgroundImage = fishGame.Properties.Resources._1Fish;
+                        btn[i, j].Tag = new string(new char[] { '1' });
+                    }
+                    else if (num == 2)
+                    {
+                        btn[i, j].BackgroundImage = fishGame.Properties.Resources._2Fish;
+                        btn[i, j].Tag = new string(new char[] { '2' });
+                    }
+                    else if (num == 3)
+                    {
+                        btn[i, j].BackgroundImage = fishGame.Properties.Resources._3Fish;
+                        btn[i, j].Tag = new string(new char[] { '3' });
+                    }
+
                     btn[i, j].Name = Convert.ToString(i + "," + j);
                     btn[i, j].Click += new EventHandler(this.btnEvent_Click);
                     Controls.Add(btn[i, j]);
@@ -89,15 +104,11 @@ namespace fishGame
             }
 
             // Gets display names for both players
-            string value = "";
-            if (InputBox("Choose your display name", "Enter your chosen display name", ref value, 50) == DialogResult.OK)
+            string[] value = { "Red", "Blue" };
+            if (EnterUsernames("Usernames", 20, ref value) == DialogResult.OK)
             {
-                txtRed.Text = value;
-            }
-            value = "";
-            if (InputBox("Choose your display name", "Enter your chosen display name", ref value, 50) == DialogResult.OK)
-            {
-                txtBlue.Text = value;
+                txtRed.Text = value[0];
+                txtBlue.Text = value[1];
             }
 
             // Setting up the first turn [red always goes first]
@@ -109,38 +120,87 @@ namespace fishGame
             result = MessageBox.Show(txtRed.Text + " plays first! You are red. Click a box to make your first move. \n" + txtBlue.Text + " will play second. You are blue.", "First Move", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // NEED TO CHANGE IT ALL BECAUSE ITS FROM SOMEWHERE ELSE
-        // proportions are terrible too
-        public static DialogResult InputBox(string title, string promptText, ref string value, int maxLength)
+        // Usernames Dialog 
+        public static DialogResult highScoreDisplay(string title, string fileName)
         {
+            string highScores = File.ReadAllText(fileName);
+            // create form and controls
             Form form = new Form();
-            Label label = new Label();
-            TextBox textBox = new TextBox();
+            Label lblScores = new Label();
             Button buttonOk = new Button();
+            Font font = new Font("Arial", 12, FontStyle.Bold);
+
+            // customise form
             form.Text = title;
-            label.Text = promptText;
-            buttonOk.Text = "OK";
-            buttonOk.DialogResult = DialogResult.OK;
-            label.SetBounds(36, 36, 372, 13);
-            textBox.SetBounds(36, 86, 700, 20);
-            buttonOk.SetBounds(228, 160, 160, 60);
-            label.AutoSize = true;
-            form.ClientSize = new Size(796, 307);
+            form.ClientSize = new Size(200, 300);
             form.FormBorderStyle = FormBorderStyle.FixedDialog;
             form.StartPosition = FormStartPosition.CenterScreen;
             form.MinimizeBox = false;
             form.MaximizeBox = false;
-            form.Controls.AddRange(new Control[] { label, textBox, buttonOk });
+            form.BackgroundImage = fishGame.Properties.Resources.usernames_background;
+
+            // customise controls
+            lblScores.Text = highScores;
+            buttonOk.Text = "OK";
+            buttonOk.DialogResult = DialogResult.OK;
+            lblScores.Font = font;
+            lblScores.ForeColor = Color.Gold;
+
+            // resize
+            lblScores.SetBounds(form.Width / 4, 60, form.Width / 2, 100);
+            buttonOk.SetBounds((form.Width / 2) - 50, 200, 100, 55);
+
+            // place controls on form and and display
+            form.Controls.AddRange(new Control[] { lblScores, buttonOk });
             form.AcceptButton = buttonOk;
             DialogResult dialogResult = form.ShowDialog();
-            value = textBox.Text;
 
-            while (value.Length > maxLength)
-            {
-                MessageBox.Show("Please enter a valid name with 1 to " + maxLength + " characters.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dialogResult = form.ShowDialog();
-                value = textBox.Text;
-            }
+            return dialogResult;
+        }
+
+        // Usernames Dialog 
+        public static DialogResult EnterUsernames(string title, int charLimit, ref string[] value)
+        {
+            // create form and controls
+            Form form = new Form();
+            Label labelUser1 = new Label();
+            Label labelUser2 = new Label();
+            TextBox user1 = new TextBox();
+            TextBox user2 = new TextBox();
+            Button buttonOk = new Button();
+
+            // customise form
+            Font font = new Font("Times New Roman", 11);
+            form.Text = title;
+            form.ClientSize = new Size(600, 350);
+            form.FormBorderStyle = FormBorderStyle.FixedDialog;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.MinimizeBox = false;
+            form.MaximizeBox = false;
+            form.BackgroundImage = fishGame.Properties.Resources.usernames_background;
+
+            // customise controls
+            labelUser1.Text = "Enter the username for Red: ";
+            labelUser2.Text = "Enter the username for Blue: ";
+            buttonOk.Text = "OK";
+            buttonOk.DialogResult = DialogResult.OK;
+            labelUser1.Font = font;
+            labelUser2.Font = font;
+
+            // resize
+            labelUser1.SetBounds(form.Width / 4, 60, form.Width / 2, 20);
+            user1.SetBounds(form.Width / 4, 80, form.Width / 2, 20);
+            labelUser2.SetBounds(form.Width / 4, 120, form.Width / 2, 20);
+            user2.SetBounds(form.Width / 4, 140, form.Width / 2, 20);
+            buttonOk.SetBounds((form.Width / 2) - 50, 200, 100, 55);
+
+            // place controls on form and and display
+            form.Controls.AddRange(new Control[] { labelUser1, user1, labelUser2, user2, buttonOk });
+            form.AcceptButton = buttonOk;
+            DialogResult dialogResult = form.ShowDialog();
+            if (user1.Text != "") value[0] = user1.Text;
+            if (user2.Text != "") value[1] = user2.Text;
+
             return dialogResult;
         }
 
@@ -160,7 +220,7 @@ namespace fishGame
             currentY = Int32.Parse(current[1]);
 
             // Checks whether the current selection ends the game
-            if (isGameOver(currentX, currentY))
+            if (isGameOver(currentX, currentY) && (((Button)sender).BackColor != Color.Black) && (((Button)sender).BackColor != Color.PowderBlue))
             {
                 // If first game then make high score file and save both scores and names
                 if (redPoints >= bluePoints && !File.Exists(highScoresFile))
@@ -199,7 +259,7 @@ namespace fishGame
                     highScoreList.Add(new KeyValuePair<int, string>(redPoints, txtRed.Text));
                     highScoreList.Add(new KeyValuePair<int, string>(bluePoints, txtBlue.Text));
 
-                    // welp this doesnt work. It can't sort this.
+                    // Sort scores high to low
                     highScoreList.Sort(CompareNums);
 
                     // If the list is at its max length, drop the last two scores
@@ -244,10 +304,9 @@ namespace fishGame
                     // Change the current button to an empty square
                     ((Button)sender).BackColor = Color.Black;
                     ((Button)sender).BackgroundImage = null;
-                    ((Button)sender).Text = "0";
 
                     // Plays the sound effect as long as the mute option is not enabled
-                    if (muteSound == false)
+                    if (splashSound != null)
                     {
                         splashSound.Play();
                     }
@@ -264,10 +323,9 @@ namespace fishGame
                     // Change the current button to an empty square
                     ((Button)sender).BackColor = Color.Black;
                     ((Button)sender).BackgroundImage = null;
-                    ((Button)sender).Text = "0";
 
                     // Plays the sound effect as long as the mute option is not enabled
-                    if (muteSound == false)
+                    if (splashSound != null)
                     {
                         splashSound.Play();
                     }
@@ -341,7 +399,9 @@ namespace fishGame
                         ((Button)sender).BackgroundImageLayout = ImageLayout.Center;
 
                         // Add the points collected from this move on the red player's total
-                        num = Int32.Parse(((Button)sender).Text);
+                        if (((Button)sender).Tag.ToString() == "1") num = 1;
+                        else if (((Button)sender).Tag.ToString() == "2") num = 2;
+                        else if (((Button)sender).Tag.ToString() == "3") num = 3;
                         redPoints += num;
                         ((Label)lblRedPoints).Text = redPoints.ToString();
 
@@ -420,7 +480,9 @@ namespace fishGame
                         ((Button)sender).BackgroundImageLayout = ImageLayout.Center;
 
                         // Add the points collected from this move on the blue player's total
-                        num = Int32.Parse(((Button)sender).Text);
+                        if (((Button)sender).Tag.ToString() == "1") num = 1;
+                        else if (((Button)sender).Tag.ToString() == "2") num = 2;
+                        else if (((Button)sender).Tag.ToString() == "3") num = 3;
                         bluePoints += num;
                         ((Label)lblBluePoints).Text = bluePoints.ToString();
 
@@ -438,10 +500,12 @@ namespace fishGame
             obstruction = false;
         }
 
-        // ideally change this more?
-        private int CompareNums(KeyValuePair<int, string> compareThis, KeyValuePair<int, string> withThis)
+        /*
+         * Compares 2 KeyValue pair Keys and returns 0 if equal, > 0 if bigger, < 0 if smaller
+         */
+        private int CompareNums(KeyValuePair<int, string> withThis, KeyValuePair<int, string> compareThis)
         {
-            return withThis.Key.CompareTo(compareThis.Key);
+            return compareThis.Key.CompareTo(withThis.Key);
         }
 
         /*
@@ -462,7 +526,7 @@ namespace fishGame
             // can move down
             if (y + 1 <= 9 && btn[x, y + 1].BackColor == Color.PowderBlue)
                 return gameOver = false;
-            return gameOver;
+            return gameOver = true;
         }
 
         /*
@@ -477,10 +541,12 @@ namespace fishGame
             {
                 result = MessageBox.Show("Game Complete! Winner is " + txtRed.Text + " with " + redPoints + " points. Would you like to play again?", "Game Complete", MessageBoxButtons.YesNo);
             }
-            else
+            else if (redPoints < bluePoints)
             {
                 result = MessageBox.Show("Game Complete! Winner is " + txtBlue.Text + " with " + bluePoints + " points. Would you like to play again?", "Game Complete", MessageBoxButtons.YesNo);
             }
+            else
+                result = MessageBox.Show("Game Complete! It's a draw! Would you like to play again?", "Game Complete", MessageBoxButtons.YesNo);
 
             // If the player selects yes, they would like to play again, reset the game
             if (result == DialogResult.Yes)
@@ -528,21 +594,6 @@ namespace fishGame
         }
 
         /*
-         * Allows the user to mute and unmute the sound effects in the game.
-         */
-        private void cgbxbMute_CheckedChanged(object sender, EventArgs e)
-        {
-            if (muteSound == false)
-            {
-                muteSound = true;
-            }
-            else
-            {
-                muteSound = false;
-            }
-        }
-
-        /*
          * Allows the user to see the previous top 5 high scores via the options menu.
          */
         private void highScoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -550,14 +601,12 @@ namespace fishGame
             // Checks whether the file exists, if it does, display the high scores, if not, display an appropriate message
             if (File.Exists(highScoresFile))
             {
-                string highScoresMenu = File.ReadAllText(highScoresFile);
-                DialogResult result;
-                result = MessageBox.Show(highScoresMenu, "High Scores");
+                highScoreDisplay("High Scores", highScoresFile);
             }
             else
             {
                 DialogResult result;
-                result = MessageBox.Show("No high scores yet.\n Play a game first :)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                result = MessageBox.Show("No high scores yet.\n Play a game first :)", "High Score Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -580,15 +629,30 @@ namespace fishGame
             obstruction = false;
             lastPlayed = '\0';
 
-            // Clear the board
+            // Reset the board
             for (int i = 0; i < btn.GetLength(0); i++)
             {
                 for (int j = 0; j < btn.GetLength(1); j++)
                 {
                     btn[i, j].BackColor = Color.PowderBlue;
-                    btn[i, j].Text = Convert.ToString(num = rnd.Next(1, 4));
+                    int num = rnd.Next(1, 4);
+
+                    if (num == 1)
+                    {
+                        btn[i, j].BackgroundImage = fishGame.Properties.Resources._1Fish;
+                        btn[i, j].Tag = new string(new char[] { '1' });
+                    }
+                    else if (num == 2)
+                    {
+                        btn[i, j].BackgroundImage = fishGame.Properties.Resources._2Fish;
+                        btn[i, j].Tag = new string(new char[] { '2' });
+                    }
+                    else if (num == 3)
+                    {
+                        btn[i, j].BackgroundImage = fishGame.Properties.Resources._3Fish;
+                        btn[i, j].Tag = new string(new char[] { '3' });
+                    }
                     btn[i, j].Name = Convert.ToString(i + "," + j);
-                    btn[i, j].BackgroundImage = null;
                 }
             }
 
@@ -605,6 +669,26 @@ namespace fishGame
         {
             DialogResult result;
             result = MessageBox.Show("*Oi! That's My Sea Creature*\nBased on the boardgame 'Hey that's my fish!'.\n\nThe ice is breaking up! Grab all the fish you can before they slip away. If you don’t, another penguin will. It’s every penguin for itself. Your penguin must race across the rapidly dwindling ice floe to collect the juiciest fish and block off their rivals. But your penguin better stay alert! If a penguin gets stuck on an ice floe, he’s done. Seemingly simple, your goal will be thwarted by devious penguins and an ever-shrinking game board. What strategy will you construct to bypass the competition?\n\nThe player who has collected the most fish by the end of the game wins.\n\nMove your penguin! During this step, the player moves their penguin as far as they want in a straight line. The penguin may move in any one of the four directions of the square, but it cannot change direction during the move. The penguin can only move onto unoccupied ice floes. It cannot move onto or through floes occupied by another penguin or spaces without ice floes", "Rules", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        /*
+         * Allows the user to mute and unmute the sound effects in the game.
+         */
+        private void btnSound_Click(object sender, EventArgs e)
+        {
+            // if clicked when unmuted then mute
+            if (muteSound == true)
+            {
+                ((Button)sender).BackgroundImage = fishGame.Properties.Resources.soundOff;
+                splashSound = null;
+                muteSound = false;
+            }
+            else
+            {
+                ((Button)sender).BackgroundImage = fishGame.Properties.Resources.soundOn;
+                splashSound = new System.Media.SoundPlayer(Properties.Resources.splash);
+                muteSound = true;
+            }
         }
     }
 }
