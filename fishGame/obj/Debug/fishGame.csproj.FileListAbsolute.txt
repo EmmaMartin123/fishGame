@@ -38,3 +38,13 @@ C:\Users\4mart\Desktop\uniWork\fishGame\obj\Debug\fishGame.csproj.GenerateResour
 C:\Users\4mart\Desktop\uniWork\fishGame\obj\Debug\fishGame.csproj.CoreCompileInputs.cache
 C:\Users\4mart\Desktop\uniWork\fishGame\obj\Debug\fishGame.exe
 C:\Users\4mart\Desktop\uniWork\fishGame\obj\Debug\fishGame.pdb
+C:\Users\4mart\Downloads\fishGame-main\fishGame\obj\Debug\fishGame.csproj.AssemblyReference.cache
+C:\Users\4mart\Downloads\fishGame-main\fishGame\obj\Debug\fishGame.exe
+C:\Users\4mart\Downloads\fishGame-main\fishGame\obj\Debug\fishGame.pdb
+C:\Users\4mart\Downloads\fishGame-main\fishGame\bin\Debug\fishGame.exe.config
+C:\Users\4mart\Downloads\fishGame-main\fishGame\bin\Debug\fishGame.exe
+C:\Users\4mart\Downloads\fishGame-main\fishGame\bin\Debug\fishGame.pdb
+C:\Users\4mart\Downloads\fishGame-main\fishGame\obj\Debug\fishGame.frmGameScreen.resources
+C:\Users\4mart\Downloads\fishGame-main\fishGame\obj\Debug\fishGame.Properties.Resources.resources
+C:\Users\4mart\Downloads\fishGame-main\fishGame\obj\Debug\fishGame.csproj.GenerateResource.cache
+C:\Users\4mart\Downloads\fishGame-main\fishGame\obj\Debug\fishGame.csproj.CoreCompileInputs.cache

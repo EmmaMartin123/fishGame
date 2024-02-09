@@ -600,6 +600,12 @@ namespace fishGame
             DialogResult result;
             result = MessageBox.Show(txtRed.Text + " plays first! You are red. Click a box to make your first move. \n" + txtBlue.Text + " will play second. You are blue.", "First Move", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void rulesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result;
+            result = MessageBox.Show("*Oi! That's My Sea Creature*\nBased on the boardgame 'Hey that's my fish!'.\n\nThe ice is breaking up! Grab all the fish you can before they slip away. If you don’t, another penguin will. It’s every penguin for itself. Your penguin must race across the rapidly dwindling ice floe to collect the juiciest fish and block off their rivals. But your penguin better stay alert! If a penguin gets stuck on an ice floe, he’s done. Seemingly simple, your goal will be thwarted by devious penguins and an ever-shrinking game board. What strategy will you construct to bypass the competition?\n\nThe player who has collected the most fish by the end of the game wins.\n\nMove your penguin! During this step, the player moves their penguin as far as they want in a straight line. The penguin may move in any one of the four directions of the square, but it cannot change direction during the move. The penguin can only move onto unoccupied ice floes. It cannot move onto or through floes occupied by another penguin or spaces without ice floes", "Rules", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
 
